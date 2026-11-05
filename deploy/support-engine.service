@@ -1,0 +1,15 @@
+[Unit]
+Description=Support Engine — Telegram-native support bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/support-engine
+ExecStart=/usr/bin/python3 /root/support-engine/core/bot.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
